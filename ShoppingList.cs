@@ -83,14 +83,17 @@ class ShoppingList
     {
         string text = File.ReadAllText(path);
         string[] lines = text.Split('\n');
-
+        
         foreach (string line in lines)
         {
-            if (string.IsNullOrEmpty(line))
+            string trimLine = line.Trim();
+
+            if (string.IsNullOrEmpty(trimLine))
             {
                 continue;
             }
-            string[] parts = line.Split(';');
+
+            string[] parts = trimLine.Split(';');
             items.Add(new Item(parts[1], int.Parse(parts[0])));
         }
     }
