@@ -14,3 +14,8 @@ Detta löste jag genin att jag använde mig av metoden Trim(). Trim() metoden ta
 Tredje felet jag hittade var att Total() inte blev korrekt eftersom den första varans pris inte räknades med i Total().
 
 Detta löste jag genom att jag ändrade for-loopen i Total() så att indexräkningen började på 0 istället för 1. Eftersom det första en lista börjar räknas på 0.
+
+## Fel 4
+Programmet kraschar om man skriver in fel format i priset när en vara ska läggas till. 
+
+Löste detta felet genom att lägga till en while-loop i choice 1. I while loppen bestämde jag att så länge priset som skriv in inte är en integer, så frågas priset om igen och igen tills ett giltligt heltal skrivs in. Då läggs en ny item in i listan med sitt pris.

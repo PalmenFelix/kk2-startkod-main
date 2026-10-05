@@ -20,8 +20,13 @@ while (true)
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
-        list.Add(new Item(name, price));
+        int price;
+        while (!int.TryParse(Console.ReadLine(), out price))
+        {
+            Console.WriteLine("Ange ett giltigt pris: ");
+        }
+        Item item = new Item(name, price);
+        list.Add(item);
     }
     else if (choice == 2)
     {
