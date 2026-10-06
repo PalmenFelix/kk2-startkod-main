@@ -18,20 +18,33 @@ while (true)
     if (choice == 1)
     {
         Console.Write("Namn: ");
+
         string name = Console.ReadLine();
+
         Console.Write("Pris: ");
+
         int price;
+
         while (!int.TryParse(Console.ReadLine(), out price))
         {
             Console.WriteLine("Ange ett giltigt pris: ");
         }
+
         Item item = new Item(name, price);
+        
         list.Add(item);
     }
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+
+        int number;
+
+        while (!int.TryParse(Console.ReadLine(), out number))
+        {
+            Console.WriteLine("Ange ett giltigt nummer: ");
+        }
+        
         list.RemoveAt(number);
     }
     else if (choice == 3)

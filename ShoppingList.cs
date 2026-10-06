@@ -17,7 +17,18 @@ class ShoppingList
     // Removes the item the user sees as number 1, 2, 3 ...
     public void RemoveAt(int number)
     {
+        while (number < 1 || number > items.Count)
+        {
+            Console.WriteLine("Ange ett giltigt nummer: ");
+
+            if (int.TryParse(Console.ReadLine(), out number))
+                {
+                    continue;
+                }
+        }
+        
         items.RemoveAt(number - 1);
+            
     }
 
     // Adds up the price of every item on the list.
