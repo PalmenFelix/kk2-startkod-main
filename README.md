@@ -1,3 +1,5 @@
+# Del 1
+
 ## Fel 1 (Load() och items.txt)
 Terminalen klagar på ShoppingList.Load() på line 90, terminalen klagar även på line 2 i program.cs. Varorna skriva i items.txt skrivs inte ut i terminalen heller. Programmet måste även kunna starta även om items.txt inte finns.
 
