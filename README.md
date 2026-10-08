@@ -27,3 +27,6 @@ När man ska välja ett alternativ i huvudmenyn så kraschar programmet om man i
 Jag löste detta genom att använda en if-sats och int.TryParse i Program.cs. TryParse kontrollerar att det som skrivs in kan omvandlas till en integer. Jag lade också till en kontroll så att choice måste vara mellan 1 och 5. Programmet fortsätter också med loopen som visar huvudmenyn igen och igen tills ett alternativ mellan 1 och 5 väljs.
 
 ## Fel 6 (Save())
+Detta felet döljer att något gick fel. Det ligger en Console.WriteLine som alltid meddelar att listan blir sparad oavsett om den blir det eller inte, eftersom den ligger utanför try-catch. 
+
+Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades och jag använde IOException i catch, som tar hand om fel när programmet läser eller skriver till en fil.

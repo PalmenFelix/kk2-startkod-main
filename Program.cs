@@ -18,6 +18,7 @@ while (true)
     if (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 5)
     {
         Console.WriteLine("Det var inte ett giltigt val.");
+        continue;
     }
 
     if (choice == 1)
@@ -48,7 +49,7 @@ while (true)
 
         if (!int.TryParse(Console.ReadLine(), out number))
         {
-            Console.WriteLine("Nummret finns inte i listan.");
+            Console.WriteLine("Numret finns inte i listan.");
         }
         else
         {
