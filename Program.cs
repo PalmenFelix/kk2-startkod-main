@@ -25,14 +25,15 @@ while (true)
 
         int price;
 
-        while (!int.TryParse(Console.ReadLine(), out price))
+        if (!int.TryParse(Console.ReadLine(), out price))
         {
-            Console.WriteLine("Ange ett giltigt pris: ");
+            Console.WriteLine("Det var inte ett giltigt pris.");
         }
-
-        Item item = new Item(name, price);
-        
-        list.Add(item);
+        else
+        {
+            Item item = new Item(name, price);
+            list.Add(item);
+        }
     }
     else if (choice == 2)
     {
@@ -40,12 +41,14 @@ while (true)
 
         int number;
 
-        while (!int.TryParse(Console.ReadLine(), out number))
+        if (!int.TryParse(Console.ReadLine(), out number))
         {
-            Console.WriteLine("Ange ett giltigt nummer: ");
+            Console.WriteLine("Nummret finns inte i listan.");
         }
-        
-        list.RemoveAt(number);
+        else
+        {
+            list.RemoveAt(number);
+        }
     }
     else if (choice == 3)
     {

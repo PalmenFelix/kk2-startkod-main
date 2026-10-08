@@ -3,7 +3,7 @@ Terminalen klagar på ShoppingList.Load() på line 90, terminalen klagar även p
 
 Jag lade till en if-sats i foreach loopen så att programmet inte krashade när det fanns en tom rad. If-satsen kontrollerar då om 
 en line är tom och om den är det så kör programmet continue; så att den skippar om en rad är tom och progrmamet inte kraschar. 
-Jag löste problemet att varorna inte skrivs ut genom att använda metoden Trim(). Trim() metoden tar bort tomrum och whitespace och det är precis det \r räknades som. ********************
+Jag löste problemet att varorna inte skrivs ut genom att använda metoden Trim(). Trim() metoden tar bort tomrum och whitespace och det är precis det \r räknades som. *items.txt lösning*
 
 ## Fel 2 (Total() beräkning)
 Andra felet jag hittade var att Total() inte blev korrekt eftersom den första varans pris inte räknades med i Total().

@@ -17,14 +17,10 @@ class ShoppingList
     // Removes the item the user sees as number 1, 2, 3 ...
     public void RemoveAt(int number)
     {
-        while (number < 1 || number > items.Count)
+        if (number < 1 || number > items.Count)
         {
-            Console.WriteLine("Ange ett giltigt nummer: ");
-
-            if (int.TryParse(Console.ReadLine(), out number))
-                {
-                    continue;
-                }
+            Console.WriteLine("Numret finns inte i listan.");
+            return;
         }
         
         items.RemoveAt(number - 1);
@@ -92,6 +88,11 @@ class ShoppingList
     // Reads the file back into the list.
     public void Load()
     {
+        if(!File.Exists(path))
+        {
+            Console.WriteLine("Det finns ingen sparad lista.");
+            return;
+        }
         string text = File.ReadAllText(path);
         string[] lines = text.Split('\n');
         
