@@ -24,4 +24,6 @@ Jag löste detta fel genom att först använda int.TryParse i choice 2 för att 
 ## Fel 5 (Huvudmeny)
 När man ska välja ett alternativ i huvudmenyn så kraschar programmet om man inte skriver en integer. 
 
+Jag löste detta genom att använda en if-sats och int.TryParse i Program.cs. TryParse kontrollerar att det som skrivs in kan omvandlas till en integer. Jag lade också till en kontroll så att choice måste vara mellan 1 och 5. Programmet fortsätter också med loopen som visar huvudmenyn igen och igen tills ett alternativ mellan 1 och 5 väljs.
+
 ## Fel 6 (Save())
