@@ -32,3 +32,11 @@ Jag löste detta genom att använda en if-sats och int.TryParse i Program.cs. Tr
 Detta felet döljer att något gick fel. Det ligger en Console.WriteLine som alltid meddelar att listan blir sparad oavsett om den blir det eller inte, eftersom den ligger utanför try-catch. 
 
 Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades och jag använde IOException i catch, som tar hand om fel när programmet läser eller skriver till en fil.
+
+# Del 2
+
+## Item ArgumentOutOfRangeException & ArgumentException
+
+Jag ändrade Item så att den inte kunde skapa ett objekt med ogiltiga värden med hjälp av ArgumentOutOfRangeException och ArgumentException.
+
+Om namnet som skrivs in är tomt så kastas en ArgumentException och om priset är negativt så kastas en ArgumentOutOfRangeException. Sen gjorde jag också try-catch i Program.cs som skriver ut ett felmeddelande om dessa exceptions så att programmet inte kraschar och så att man vet vad som var fel.
