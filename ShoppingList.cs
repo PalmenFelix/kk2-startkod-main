@@ -92,6 +92,10 @@ class ShoppingList
         {
             Console.WriteLine("Kunde inte spara listan.");
         }
+        catch(UnauthorizedAccessException)
+        {
+            Console.WriteLine("Kunde inte spara listan.");
+        }
 
     }
 

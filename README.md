@@ -33,7 +33,8 @@ Jag löste detta genom att använda en if-sats och int.TryParse i Program.cs. Tr
 ## Fel 6 (Save())
 Detta felet döljer att något gick fel. Det ligger en Console.WriteLine som alltid meddelar att listan blir sparad oavsett om den blir det eller inte, eftersom den ligger utanför try-catch. 
 
-Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades och jag använde IOException i catch, som tar hand om fel som kan hända när programmet läser från eller skriver till en fil.
+Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades. Jag använde IOException i en catch och UnauthorizedAccessException i en till catch, för att hantera filskrivningsfel och behörighetsfel som kan uppstå när programmet sparar listan.
+
 
 # Del 2
 
