@@ -9,9 +9,18 @@ class ShoppingList
         this.path = path;
     }
 
-    public void Add(Item item)
+
+    public bool Add(Item item)
     {
-        items.Add(item);
+        if (Total() + item.Price > BudgetRoof)
+        {
+            return false;
+        }
+        else
+        {
+            items.Add(item);
+            return true;
+        }
     }
 
     // Removes the item the user sees as number 1, 2, 3 ...
@@ -110,4 +119,6 @@ class ShoppingList
             items.Add(new Item(parts[1], int.Parse(parts[0])));
         }
     }
+    public int BudgetRoof => 1000;
+
 }

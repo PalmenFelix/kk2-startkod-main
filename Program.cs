@@ -40,7 +40,10 @@ while (true)
             try
             {
                 Item item = new Item(name, price);
-                list.Add(item);
+                if (!list.Add(item))
+                {
+                    Console.WriteLine($"Du har inte råd med varan. Din budget är {list.BudgetRoof} kr");
+                }
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -60,7 +63,7 @@ while (true)
 
         if (!int.TryParse(Console.ReadLine(), out number))
         {
-            Console.WriteLine("Numret finns inte i listan.");
+            Console.WriteLine("Ange ett giltigt nummer.");
         }
         else
         {
