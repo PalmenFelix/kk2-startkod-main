@@ -43,7 +43,7 @@ Jag ändrade Item så att den inte kunde skapa ett objekt med ogiltiga värden m
 Om namnet som skrivs in är tomt så kastas en ArgumentException och om priset är negativt så kastas en ArgumentOutOfRangeException. Sen gjorde jag också try-catch i Program.cs som skriver ut ett felmeddelande om dessa exceptions så att programmet inte kraschar och så att man vet vad som var fel.
 
 ## Budgettak & Designval
-Jag lade till ett budgettak (BudgetRoof) på 1000 kr i ShoppingList.cs. I Add() använde jag bool för att kontrollera om en vara kan läggas till.
+Jag lade till ett budgettak (BudgetRoof) på 1000 kr i ShoppingList.cs. I Add() använde jag bool för att kontrollera om en vara kan läggas till i listan.
 
 I ShoppingList.cs skapade jag först BudgetRoof, som har värdet 1000. I Add() lade jag till en if-sats som kollar så att budgeten inte överskrids. Om budgeten överskrids returneras false och ett meddelande skrivs ut från Program.cs. Om budgeten inte överskrids läggs varan till och true returneras.
 
