@@ -5,7 +5,9 @@ Terminalen klagar på ShoppingList.Load() på line 90, terminalen klagar även p
 
 Jag lade till en if-sats i foreach loopen så att programmet inte kraschade när det fanns en tom rad. If-satsen kontrollerar då om
 en line är tom och om den är det så kör programmet continue; så att den skippar om en rad är tom och programmet inte kraschar.
-Jag löste problemet att varorna inte skrivs ut genom att använda metoden Trim(). Trim() metoden tar bort tomrum och whitespace och det är precis det \r räknades som. Löste även så att programmet inte kraschar när items.txt-filen inte finns. Jag gjorde det genom att ändra Load() metoden med att lägga till en if-sats som kollar om det finns en sparad fil med hjälp av File.Exists(path). Och om det då inte fanns någon sparad fil så skrivs ett meddelande ut med Console.WriteLine och man går ur Load() metoden med return;.
+Jag löste problemet att varorna inte skrivs ut genom att använda metoden Trim(). Trim() metoden tar bort tomrum och whitespace och det är precis det \r räknades som. 
+
+Löste även så att programmet inte kraschar när items.txt-filen inte finns. Jag gjorde det genom att ändra Load() metoden med att lägga till en if-sats som kollar om det finns en sparad fil med hjälp av File.Exists(path). Och om det då inte fanns någon sparad fil så skrivs ett meddelande ut med Console.WriteLine och man går ur Load() metoden med return;.
 
 
 ## Fel 2 (Total() beräkning)
@@ -16,7 +18,7 @@ Detta löste jag genom att jag ändrade for-loopen i Total() så att indexräkni
 ## Fel 3 (Prishantering)
 Programmet kraschar om man skriver in fel format i priset när en vara ska läggas till.
 
-Jag löste detta fel genom att använda int.TryParse i choice 1 för att kontrollera om priset kan omvandlas till en integer. Om priset inte är giltigt skrivs ett felmeddelande ut och programmet går tillbaka till huvudmenyn. Om priset är giltigt läggs en ny Item in i listan med sitt pris.
+Jag löste detta fel genom att använda int.TryParse i choice 1 för att kontrollera om priset kan omvandlas till en integer. Om priset inte är giltigt skrivs ett felmeddelande ut och programmet går tillbaka till huvudmenyn. Om priset då kan omvandlas till en integer så försöker programmet lägga till varan om allt annat också är giltligt.
 
 ## Fel 4 (Borttagning av vara)
 Programmet kraschar om man skriver in något som inte är en integer eller ett nummer som inte finns på listan när man väljer choice 2 för att ta bort en vara.
@@ -31,7 +33,7 @@ Jag löste detta genom att använda en if-sats och int.TryParse i Program.cs. Tr
 ## Fel 6 (Save())
 Detta felet döljer att något gick fel. Det ligger en Console.WriteLine som alltid meddelar att listan blir sparad oavsett om den blir det eller inte, eftersom den ligger utanför try-catch. 
 
-Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades och jag använde IOException i catch, som tar hand om fel när programmet läser eller skriver till en fil.
+Löste detta felet genom att jag flyttade Console.WriteLine som skrev att listan sparas in i try. Jag lade också till en Console.WriteLine i catch som säger att listan inte sparades och jag använde IOException i catch, som tar hand om fel som kan hända när programmet läser från eller skriver till en fil.
 
 # Del 2
 
@@ -46,3 +48,32 @@ Jag lade till ett budgettak (BudgetRoof) på 1000 kr i ShoppingList.cs. I Add() 
 I ShoppingList.cs skapade jag först BudgetRoof, som har värdet 1000. I Add() lade jag till en if-sats som kollar så att budgeten inte överskrids. Om budgeten överskrids returneras false och ett meddelande skrivs ut från Program.cs. Om budgeten inte överskrids läggs varan till och true returneras.
 
 Jag valde att använda bool eftersom jag tyckte det passade bra för ett budgettak. Antingen överskrids inte budgeten och då returneras true vilket betyder att varan läggs till. Eller så överskrids budgeten och då returneras false vilket betyder att varan inte läggs till.
+
+## Klassdiagram
+```mermaid
+classDiagram
+    class Program
+
+    class ShoppingList {
+        -items : List~Item~
+        -path : string
+        +BudgetRoof : int
+        +ShoppingList(path : string)
+        +Add(item : Item) bool
+        +RemoveAt(number : int) void
+        +Total() int
+        +Find(name: string) Item
+        +Print() void
+        +Save() void
+        +Load() void
+    }
+
+        class Item {
+            +Name : string
+            +Price : int
+            +Item(name : string, price : int)
+            +ToString() string
+    }
+    Program ..> ShoppingList
+    ShoppingList o-- Item
+```
